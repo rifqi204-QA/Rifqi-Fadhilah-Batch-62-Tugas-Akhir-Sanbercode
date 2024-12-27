@@ -27,16 +27,16 @@ describe('Login Feature', () => {
        loginPage.messageInvalid().should('have.text','Invalid credentials');
    })
    it('Login dengan username terdaftar tetapi Password Invalid', () => {
-    cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
-    loginPage.textLogin().should('have.text','Login');
-    loginPage.inputUsername().type('Admin');
-    loginPage.inputPassword().type('admin12345');
-    cy.intercept("GET","**/index.php/core/i18n/messages").as("messages");
-    loginPage.buttonLogin().click();
-    cy.wait("@messages").then((intercept) => {
-        expect(intercept.response.statusCode).to.equal(304);
-    });
-    loginPage.messageInvalid().should('have.text','Invalid credentials');
+       cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+       loginPage.textLogin().should('have.text','Login');
+       loginPage.inputUsername().type('Admin');
+       loginPage.inputPassword().type('admin12345');
+       cy.intercept("GET","**/index.php/core/i18n/messages").as("messages");
+       loginPage.buttonLogin().click();
+       cy.wait("@messages").then((intercept) => {
+           expect(intercept.response.statusCode).to.equal(304);
+       });
+       loginPage.messageInvalid().should('have.text','Invalid credentials');
    })
    it('Login dengan username terdaftar tetapi password Blank', () => {
        cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
