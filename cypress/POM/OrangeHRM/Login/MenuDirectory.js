@@ -46,4 +46,7 @@ export default class DashboardDirectory {
         return cy.get('[class="oxd-autocomplete-dropdown --positon-bottom"]');
     }
 
+    static MessageInvalid(){
+        return cy.get('[class="oxd-text oxd-text--span oxd-input-field-error-message oxd-input-group__message"]')
+    }
 }
