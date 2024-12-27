@@ -49,4 +49,24 @@ export default class DashboardDirectory {
     static MessageInvalid(){
         return cy.get('[class="oxd-text oxd-text--span oxd-input-field-error-message oxd-input-group__message"]')
     }
+
+    static dropdownJobTitle(){
+        return cy.get('[class="oxd-select-wrapper"]').get('[class="oxd-icon bi-caret-down-fill oxd-select-text--arrow"]').eq(0);
+    }
+
+    static dropdownLocation(){
+        return cy.get('[class="oxd-select-wrapper"]').get('[class="oxd-icon bi-caret-down-fill oxd-select-text--arrow"]').eq(1);
+    }
+
+    static listBoxJobTitle_Location(){
+        return cy.get('[class="oxd-select-dropdown --positon-bottom"]').should('be.visible');
+    }
+
+    static MessageRecord(){
+        return cy.get('[class="oxd-text oxd-text--span"]');
+    }
+
+    static PopupNoRecordFound(){
+        return cy.get('[class="oxd-toast oxd-toast--info oxd-toast-container--toast"]');
+    }
 }
